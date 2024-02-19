@@ -1,14 +1,13 @@
 const { hash } = window.location;
 
-const message = atob(hash.replace('#', ''));
+const message = atob(hash.replace("#", ""));
 
 if (message) {
-    document.querySelector('#message-form').classList.add('hide');
-    document.querySelector('#message-show').classList.remove('hide');
+  document.querySelector("#message-form").classList.add("hide");
+  document.querySelector("#message-show").classList.remove("hide");
 
-    document.querySelector('h2').innerHTML = message;
+  document.querySelector("h2").innerHTML = message;
 }
-
 
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -24,4 +23,6 @@ document.querySelector("form").addEventListener("submit", (event) => {
   const linkinput = document.querySelector("#link-input");
   linkinput.value = `${window.location}#${encrypted}`;
   linkinput.select();
+
+  document.execCommand("copy");
 });
